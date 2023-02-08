@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://com.lsc.services/libertyTypes"
+	xmlns:bons0="http://com.lsc.services/libertyTypes"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:include schemaLocation="Estado.xsd" />
+       
+	<xsd:complexType name="InfoResponse">
+		<xsd:sequence>
+			<xsd:element minOccurs="1" name="requestID"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="1" name="estado"
+				type="bons0:Estado">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

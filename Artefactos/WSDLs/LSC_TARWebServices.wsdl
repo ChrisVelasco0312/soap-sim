@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s0="http://www.uc-council.org/smp/schemas/eanucc"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+                  xmlns:tns="http://commerce"
+                  xmlns:s="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+                  targetNamespace="http://commerce"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 xmlns:lsc="http://com.lsc.services/libertyTypes"
+                 >
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified"
+              targetNamespace="http://www.uc-council.org/smp/schemas/eanucc">
+      <xsd:import namespace="http://com.lsc.services/libertyTypes"
+        schemaLocation="Artefactos/WSDLs/InfoRequest.xsd"/>
+                  
+      <xsd:import namespace="http://com.lsc.services/libertyTypes"
+        schemaLocation="Artefactos/WSDLs/InfoResponse.xsd"/>                  
+                  
+      <s:element name="realizarpago">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" name="infoRequest" type="lsc:InfoRequest"/>
+            <s:element name="codcomerc" type="xsd:string"/>
+            <s:element name="numtx" type="xsd:string"/>
+            <s:element name="numterminal" type="xsd:string"/>
+            <s:element name="adquiriente" type="xsd:string"/>
+            <s:element name="amount" type="xsd:string"/>
+            <s:element name="iva" type="xsd:string"/>
+            <s:element name="ivareturn" type="xsd:string"/>
+            <s:element name="cuotas" type="xsd:string"/>
+            <s:element name="ipaddress" type="xsd:string"/>
+            <s:element name="nombres" type="xsd:string"/>
+            <s:element name="apellidos" type="xsd:string"/>
+            <s:element name="codigopais" type="xsd:string"/>
+            <s:element name="ciudad" type="xsd:string"/>
+            <s:element name="direccion" type="xsd:string"/>
+            <s:element name="celular" type="xsd:string"/>
+            <s:element name="genero" type="xsd:string"/>
+            <s:element name="paisenvio" type="xsd:string"/>
+            <s:element name="ciudadenvio" type="xsd:string"/>
+            <s:element name="fingerprint" type="xsd:string"/>
+            <s:element name="direccionenvio" type="xsd:string"/>
+            <s:element name="observaciones" type="xsd:string"/>
+            <s:element name="email" type="xsd:string"/>
+            <s:element name="nacionalidad" type="xsd:string"/>
+            <s:element name="telefono" type="xsd:string"/>
+            <s:element name="transactionTrace" type="xsd:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="realizarpagoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" name="infoResponse" type="lsc:InfoResponse"/>
+            <s:element minOccurs="0" maxOccurs="unbounded"
+                       name="realizarpagoReturn" type="xsd:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultaroperacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" name="infoRequest" type="lsc:InfoRequest"/>
+            <s:element minOccurs="1" maxOccurs="1" name="adquirients"
+                       type="xsd:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="codcomers"
+                       type="xsd:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="numterms"
+                       type="xsd:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="XMLRES"
+                       type="xsd:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="DIGITALSIGN"
+                       type="xsd:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="SESSIONKEY"
+                       type="xsd:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultaroperacionResponse">
+        <s:complexType>
+          <s:sequence>
+              <s:element minOccurs="1" name="infoResponse" type="lsc:InfoResponse"/>
+            <s:element minOccurs="0" maxOccurs="unbounded"
+                       name="consultaroperacionReturn" type="xsd:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+   
+   
+     <s:element name="confirmaroperacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" name="infoRequest" type="lsc:InfoRequest"/>
+            <s:element minOccurs="1" maxOccurs="1" name="adquirients"
+                       type="xsd:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="codcomers"
+                       type="xsd:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="numterms"
+                       type="xsd:string"/>
+            <s:element  minOccurs="1" maxOccurs="1" name="numOrden" type="xsd:string"/>
+
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="confirmaroperacionResponse">
+        <s:complexType>
+          <s:sequence>
+              <s:element minOccurs="1" name="infoResponse" type="lsc:InfoResponse"/>
+            <s:element minOccurs="0" maxOccurs="unbounded"
+                       name="confirmaroperacionReturn" type="xsd:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      
+      
+      
+      
+    </s:schema>
+    <s:schema>
+      <s:import schemaLocation="Artefactos/WSDLs/Estado.xsd" namespace="http://com.lsc.services/libertyTypes"/>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="realizarpagoSoapOut">
+    <wsdl:part name="parameters" element="s0:realizarpagoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="consultaroperacionSoapOut">
+    <wsdl:part name="parameters" element="s0:consultaroperacionResponse"/>
+  </wsdl:message>
+  
+  <wsdl:message name="confirmaroperacionSoapOut">
+    <wsdl:part name="parameters" element="s0:confirmaroperacionResponse" ></wsdl:part>
+  </wsdl:message>
+  
+  <wsdl:message name="realizarpagoSoapIn">
+    <wsdl:part name="parameters" element="s0:realizarpago"/>
+  </wsdl:message>
+  <wsdl:message name="consultaroperacionSoapIn">
+    <wsdl:part name="parameters" element="s0:consultaroperacion"/>
+  </wsdl:message>
+  
+  <wsdl:message name="confirmaroperacionSoapIn">
+      <wsdl:part name="parameters"  element="s0:confirmaroperacion" ></wsdl:part>
+  </wsdl:message>
+        
+  <wsdl:portType name="TARWebService">
+    <wsdl:operation name="realizarpago">
+      <wsdl:input message="tns:realizarpagoSoapIn"/>
+      <wsdl:output message="tns:realizarpagoSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="consultaroperacion">
+      <wsdl:input message="tns:consultaroperacionSoapIn"/>
+      <wsdl:output message="tns:consultaroperacionSoapOut"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="confirmaroperacion">
+        <wsdl:input message="tns:confirmaroperacionSoapIn" />
+       <wsdl:output message="tns:confirmaroperacionSoapOut"/>
+    </wsdl:operation>       
+    
+  </wsdl:portType>
+  <wsdl:binding name="TARWebService" type="tns:TARWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="realizarpago">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="realizarpagoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="realizarpagoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+    <wsdl:operation name="consultaroperacion">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaroperacionRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaroperacionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+    <wsdl:operation name="confirmaroperacion">
+      <soap:operation soapAction="" style="document"/>
+       <wsdl:input name="confirmaroperacionRequest">
+         <soap:body use="literal"/>
+       </wsdl:input><wsdl:output name="confirmaroperacionResponse">
+           <soap:body use="literal"/>
+      </wsdl:output>
+     </wsdl:operation>  
+    
+  </wsdl:binding>
+</wsdl:definitions>
