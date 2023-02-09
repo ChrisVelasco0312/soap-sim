@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:s0="http://www.uc-council.org/smp/schemas/eanucc"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+  xmlns:tns="http://commerce"
+  xmlns:s="http://www.w3.org/2001/XMLSchema"
+  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+  targetNamespace="http://commerce"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:lsc="http://com.lsc.services/libertyTypes"
+>
+
+
+  <types>
+    <s:schema elementFormDefault="qualified"
+      targetNamespace="http://www.uc-council.org/smp/schemas/eanucc">
+      <xsd:import namespace="http://com.lsc.services/libertyTypes"
+        schemaLocation="Artefactos/WSDLs/InfoRequest.xsd" />
+
+      <xsd:import namespace="http://com.lsc.services/libertyTypes"
+        schemaLocation="Artefactos/WSDLs/InfoResponse.xsd" />
+
+      <s:element name="consultaroperacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" name="infoRequest" type="lsc:InfoRequest" />
+            <s:element minOccurs="1" maxOccurs="1" name="adquirients"
+              type="xsd:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="codcomers"
+              type="xsd:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numterms"
+              type="xsd:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="XMLRES"
+              type="xsd:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DIGITALSIGN"
+              type="xsd:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SESSIONKEY"
+              type="xsd:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultaroperacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" name="infoResponse" type="lsc:InfoResponse" />
+            <s:element minOccurs="0" maxOccurs="unbounded"
+              name="consultaroperacionReturn" type="xsd:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema>
+      <s:import schemaLocation="Artefactos/WSDLs/Estado.xsd"
+        namespace="http://com.lsc.services/libertyTypes" />
+    </s:schema>
+  </types>
+
+  <!-- CONSULTAR OPERACION MESSAGES    -->
+  <message name="consultaroperacionSoapIn">
+    <part name="parameters" element="s0:consultaroperacion" />
+  </message>
+
+  <message name="consultaroperacionSoapOut">
+    <part name="parameters" element="s0:consultaroperacionResponse" />
+  </message>
+
+
+  <!--  -->
+
+  <portType name="TARWebService">
+    <operation name="consultaroperacion">
+      <input message="tns:consultaroperacionSoapIn" />
+      <output message="tns:consultaroperacionSoapOut" />
+    </operation>
+  </portType>
+
+
+  <binding name="TARWebService" type="tns:TARWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="consultaroperacion">
+      <soap:operation soapAction="" style="document" />
+      <input name="consultaroperacionRequest">
+        <soap:body use="literal" />
+      </input>
+      <output name="consultaroperacionResponse">
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+
+  <service name="TARWeb">
+    <documentation>WSDL File for TARWebServices</documentation>
+    <port binding="tns:TARWebService" name="TARWebService_Port">
+      <soap:address location="http://localhost:8001/TARWebServices/" />
+    </port>
+  </service>
+
+
+</definitions>
