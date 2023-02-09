@@ -28,7 +28,7 @@ const service = {
     TARWebService_Port: {
       consultaroperacion: function (args) {
         return {
-          name: args.name,
+          consultaroperacionResponse: 'HELLO FROM SERVER',
         };
       },
     }
