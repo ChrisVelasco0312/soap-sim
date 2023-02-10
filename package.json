@@ -18,6 +18,8 @@
     "soap": "^1.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "xml-js": "^1.6.11",
+    "xml2json": "^0.12.0"
   }
 }
